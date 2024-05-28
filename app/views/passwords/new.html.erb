@@ -1,0 +1,21 @@
+<br><br>
+<%= form_with model: @password, url: passwords_path, method: :post, namespace: :password do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name, id: "password_name", name: "password[name]" %>
+  </div>
+  <br><br>
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password, id: "password_password", name: "password[password]" %>
+  </div>
+  <br><br>
+  <div>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, id: "password_confirmation", name: "password[password_confirmation]" %>
+  </div>
+  <br><br>
+  <div>
+    <%= form.submit "Create User" %>
+  </div>
+<% end %>

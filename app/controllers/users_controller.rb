@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+
+  # http_basic_authenticate_with :name => "name", :password => "password"
+
+  def index
+    p 'USER INDEX HAS RUN'
+  end
+
   def new
     @user = User.new
   end
@@ -9,7 +16,7 @@ class UsersController < ApplicationController
     p @user.valid?
 
     if @user.save
-      redirect_to new_user_path, notice: 'User was successfully created.'
+      redirect_to users_path, notice: 'User was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end

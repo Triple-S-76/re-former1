@@ -8,5 +8,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :users, only: [:new, :create, :edit, :update]
+  resources :users, only: [:index, :new, :create, :edit, :update]
+  resources :passwords, only: [:index, :new, :create, :edit, :update]
+  resources :logged_in, only: [:index]
+  resources :sessions, only: [:new, :create]
+  delete 'logout', to: 'sessions#destroy'
+
+  get '/about', to: 'static_pages#about'
+
+  root 'static_pages#about'
+
 end
